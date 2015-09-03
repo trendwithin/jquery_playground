@@ -11,6 +11,9 @@
 </p>
 <%= link_to 'Comments', "#", id: 'comments-link' %>
 <section id="comments-section">
+  <ol id="comments">
+    <%= render @comments %>
+  </ol>
 <h2>Comments:</h2>
 <% @post.comments.each do |comment| %>
   <p><strong>Comment:</strong>
@@ -20,10 +23,10 @@
 </section>
 
 <h2>Add a comment:</h2>
-<%= form_for([@post, @post.comments.build]) remote: true do |f| %>
+<%= form_for([@post, @post.comments.build], remote: true)  do |f| %>
   <p>
   <%= f.label :body %> <br>
-  <%= f.text_area :body %>
+  <%= f.text_area :body, placeholder: 'Wrire a comment...' %>
   </p>
   <p>
     <%= f.submit %>
