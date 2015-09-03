@@ -28,8 +28,5 @@ end
 class ActionDispatch::IntegrationTest
   include Capybara::DSL
   include Capybara::Assertions
-
-
-class ActionController::TestCase
-  include Devise::TestHelpers
 end
+
